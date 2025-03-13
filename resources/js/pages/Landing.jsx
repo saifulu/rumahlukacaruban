@@ -3,12 +3,26 @@ import { Head } from '@inertiajs/react';
 
 const Landing = () => {
     const layananList = [
-        'Perawatan Luka Diabetes',
-        'Perawatan Luka Bakar',
-        'Perawatan Luka Trauma',
-        'Luka Sesudah Operasi',
-        'Perawatan STOMA',
-        'Perawatan Luka Kanker'
+        {
+            title: 'Pemeriksaan Dokter',
+            image: '/images/services/dokter.webp',
+            description: 'Konsultasi dan pemeriksaan oleh dokter spesialis wound care berpengalaman'
+        },
+        {
+            title: 'Rawat Luka',
+            image: '/images/services/rawatluka.webp',
+            description: 'Perawatan luka modern dengan metode moist wound healing'
+        },
+        {
+            title: 'Home Care',
+            image: '/images/services/home-care.jpg',
+            description: 'Layanan perawatan luka dengan kunjungan ke rumah pasien'
+        },
+        {
+            title: 'Facial Kecantikan',
+            image: '/images/services/facial.jpg',
+            description: 'Perawatan wajah profesional untuk kulit sehat dan cantik'
+        }
     ];
 
     const keunggulanList = [
@@ -217,11 +231,11 @@ const Landing = () => {
                                 {layananList.map((layanan, index) => (
                                     <span 
                                         key={index} 
-                                        className={`${buttonColors[layanan]} text-white px-4 py-2 rounded-full 
+                                        className={`${buttonColors[layanan.title]} text-white px-4 py-2 rounded-full 
                                                    text-sm font-bold tracking-tight shadow-sm
                                                    transition-all duration-300 hover:scale-105 cursor-pointer`}
                                     >
-                                        {layanan}
+                                        {layanan.title}
                                     </span>
                                 ))}
                             </div>
@@ -332,16 +346,59 @@ const Landing = () => {
             </section>
 
             {/* Layanan Section */}
-            <section id="layanan" className="py-16">
+            <section id="layanan" className="py-16 bg-gray-50">
                 <div className="container mx-auto px-4">
-                    <h2 className="text-3xl font-bold text-center mb-12">Layanan Kami</h2>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div className="text-center mb-12">
+                        <h2 className="text-3xl font-bold text-gray-900 mb-4">Layanan Kami</h2>
+                        <p className="text-gray-600 max-w-2xl mx-auto">
+                            Tingkatkan efisiensi operasional dan akselerasi pertumbuhan dengan layanan profesional kami
+                        </p>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         {layananList.map((layanan, index) => (
-                            <div key={index} className="bg-white p-6 rounded-lg shadow-md">
-                                <h3 className="text-xl font-semibold mb-4">{layanan}</h3>
-                                <p className="text-gray-600">Ditangani oleh Professional Wound Clinician</p>
+                            <div key={index} 
+                                 className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
+                                <div className="flex h-full">
+                                    {/* Image Section */}
+                                    <div className="w-1/3 relative overflow-hidden">
+                                        <img 
+                                            src={layanan.image}
+                                            alt={layanan.title}
+                                            className="w-full h-full object-cover object-center transform hover:scale-110 transition-transform duration-500"
+                                        />
+                                        {/* Overlay gradient */}
+                                        <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-transparent"></div>
+                                    </div>
+
+                                    {/* Content Section */}
+                                    <div className="w-2/3 p-6">
+                                        <div className="flex items-center mb-2">
+                                            <span className="bg-primary/10 text-primary text-xs font-semibold px-2.5 py-0.5 rounded-full">
+                                                Produk Prime
+                                            </span>
+                                        </div>
+                                        <h3 className="text-xl font-bold text-gray-900 mb-2">
+                                            {layanan.title}
+                                        </h3>
+                                        <p className="text-gray-600 text-sm">
+                                            {layanan.description}
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
                         ))}
+                    </div>
+
+                    {/* CTA Button */}
+                    <div className="text-center mt-10">
+                        <a href="#kontak" 
+                           className="inline-flex items-center px-6 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary-dark transition-all duration-300 shadow-lg hover:shadow-xl">
+                            <span>Pelajari Lebih Lanjut</span>
+                            <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                            </svg>
+                        </a>
                     </div>
                 </div>
             </section>
