@@ -83,14 +83,14 @@ const Landing = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    // Update array warna untuk button dengan solid colors
+    // Update buttonColors untuk section 1
     const buttonColors = {
-        'Perawatan Luka Diabetes': 'bg-blue-500 hover:bg-blue-600',
-        'Perawatan Luka Bakar': 'bg-red-500 hover:bg-red-600',
-        'Perawatan Luka Trauma': 'bg-emerald-500 hover:bg-emerald-600',
-        'Luka Sesudah Operasi': 'bg-violet-500 hover:bg-violet-600',
-        'Perawatan STOMA': 'bg-rose-500 hover:bg-rose-600',
-        'Perawatan Luka Kanker': 'bg-amber-500 hover:bg-amber-600'
+        'Perawatan Luka Diabetes': 'bg-blue-500',
+        'Perawatan Luka Bakar': 'bg-red-500',
+        'Perawatan Luka Trauma': 'bg-emerald-500',
+        'Luka Sesudah Operasi': 'bg-violet-500',
+        'Perawatan STOMA': 'bg-rose-500',
+        'Perawatan Luka Kanker': 'bg-amber-500'
     };
 
     return (
@@ -227,17 +227,25 @@ const Landing = () => {
                                 Solusi perawatan luka profesional dengan metode dan teknologi terkini untuk mengatasi berbagai jenis luka kronis dan akut.
                             </p>
                             
-                            <div className="flex flex-wrap gap-2 mb-8">
-                                {layananList.map((layanan, index) => (
-                                    <span 
-                                        key={index} 
-                                        className={`${buttonColors[layanan.title]} text-white px-4 py-2 rounded-full 
-                                                   text-sm font-bold tracking-tight shadow-sm
-                                                   transition-all duration-300 hover:scale-105 cursor-pointer`}
-                                    >
-                                        {layanan.title}
-                                    </span>
-                                ))}
+                            <div className="flex flex-wrap gap-3 mb-8">
+                                <button className="bg-blue-500 text-white px-4 py-2 rounded-full">
+                                    Perawatan Luka Diabetes
+                                </button>
+                                <button className="bg-red-500 text-white px-4 py-2 rounded-full">
+                                    Perawatan Luka Bakar
+                                </button>
+                                <button className="bg-emerald-500 text-white px-4 py-2 rounded-full">
+                                    Perawatan Luka Trauma
+                                </button>
+                                <button className="bg-violet-500 text-white px-4 py-2 rounded-full">
+                                    Luka Sesudah Operasi
+                                </button>
+                                <button className="bg-rose-500 text-white px-4 py-2 rounded-full">
+                                    Perawatan STOMA
+                                </button>
+                                <button className="bg-amber-500 text-white px-4 py-2 rounded-full">
+                                    Perawatan Luka Kanker
+                                </button>
                             </div>
 
                             <div className="space-y-4">
